@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getAllSurfboards } from '../api/surfboard'
+import { getAllSurfboards } from '../../api/surfboard'
 import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
@@ -47,7 +47,7 @@ const IndexSurfboards = (props) => {
                 <Card.Header>{surfboard.type}</Card.Header>
                 <Card.Body>
                     <Card.Text>
-                        <Link to={`/surfboard/${surfboard.id}`}>View {surfboard.name}</Link>
+                        <Link to={`/surfboards/${surfboard._id}`}>View {surfboard.name}</Link>
                     </Card.Text>
                 </Card.Body>
             </Card>

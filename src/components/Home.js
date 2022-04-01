@@ -1,4 +1,4 @@
-import IndexSurfboards from "./indexSurfboards"
+import IndexSurfboards from "./surfboard/IndexSurfboards"
 
 const Home = (props) => {
 	// const { msgAlert, user } = props
