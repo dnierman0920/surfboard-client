@@ -13,6 +13,7 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import ShowSurfboard from './components/surfboard/ShowSurfboard'
+import CreateSurfboard from './components/surfboard/CreateSurfboard'
 
 const App = () => {
 
@@ -68,6 +69,14 @@ const App = () => {
 						<RequireAuth user={user}>
 							<ChangePassword msgAlert={msgAlert} user={user} />
 						</RequireAuth>}
+					/>
+					<Route
+						path='/addSurfboard'
+						element={
+						<RequireAuth user={user}>	
+							<CreateSurfboard msgAlert={msgAlert} user={user} />
+						</RequireAuth>
+					}
 					/>
 					<Route
 						path='surfboards/:id'
