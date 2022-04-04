@@ -1,13 +1,23 @@
-import { Container } from "react-bootstrap";
-import { getSurfboard } from "../../api/surfboard";
+import { Container, Button } from "react-bootstrap";
+import { getSurfboard, deleteSurfboard } from "../../api/surfboard";
 import React, {useState, useEffect} from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { Card } from 'react-bootstrap'
 
 
-const ShowSurfboard = () => {
+
+const ShowSurfboard = (props) => {
    const [surfboard, setSurfboard] = useState(null)
-   const { id } = useParams() // this is not pulling the id for some reason
+   const { id } = useParams() 
+   const {user, msgAlert} = props
+   const navigate = useNavigate()
+
+   const removeTheSurfboard= () => {
+    deleteSurfboard(user, id)
+        .then(() => {navigate(`/`)})
+        .catch((next) => {
+        })
+    }
 
    useEffect(()=> {
         getSurfboard(id)
@@ -37,6 +47,11 @@ const ShowSurfboard = () => {
 
                         </Card.Text>
                     </Card.Body>
+                    <Card.Footer>
+                        <Button onClick={() => removeTheSurfboard()}className="m-2" variant="danger">
+                            Delete Surfboard
+                        </Button>
+                    </Card.Footer>
                 </Card>
             </Container> }
        </>

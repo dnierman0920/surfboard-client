@@ -80,7 +80,7 @@ const App = () => {
 					/>
 					<Route
 						path='surfboards/:id'
-						element={<ShowSurfboard />}
+						element={<ShowSurfboard msgAlert={msgAlert} user={user} />}
 					/>
 				</Routes>
 				{msgAlerts.map((msgAlert) => (

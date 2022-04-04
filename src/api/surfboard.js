@@ -22,3 +22,15 @@ export const createSurfboard = (user, newSurfboard) => {
         data: {surfboard: newSurfboard}
     })
 }
+
+// delete function
+export const deleteSurfboard = (user, surfboardId) => {
+    return axios({
+        url:`${apiUrl}/surfboards/${surfboardId}`,
+        method: 'DELETE',
+        headers: {
+            Authorization: `Token token=${user.token}`
+        }
+    })
+
+}
